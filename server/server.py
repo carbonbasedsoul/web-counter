@@ -1,15 +1,19 @@
+import threading
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+lock = threading.Lock()
 counter = 0
 
 
 @app.route("/inc", methods=["GET", "POST"])
 def increment():
     global counter
-    counter += 1
-    return jsonify({"counter": "incremented by one"})
+    with lock:
+        counter += 1
+    return jsonify({"counter current value": counter})
 
 
 @app.route("/count", methods=["GET"])
