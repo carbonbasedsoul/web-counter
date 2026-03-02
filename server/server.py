@@ -21,7 +21,7 @@ def get_count():
     return jsonify({"count": counter})
 
 
-@app.route("/reset", methods=["POST"])
+@app.route("/reset", methods=["GET", "POST"])
 def reset():
     global counter
     with lock:
