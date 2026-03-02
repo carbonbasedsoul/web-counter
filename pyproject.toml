@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "flask>=3.1.2",
-]
+dependencies = ["altair>=6.0.0", "flask>=3.1.2", "tqdm>=4.67.3"]
+
+[dependency-groups]
+dev = ["ipykernel>=7.2.0", "nbformat>=5.10.4", "pip>=26.0.1"]
